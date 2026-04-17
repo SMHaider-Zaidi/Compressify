@@ -1,0 +1,21 @@
+{% extends 'landing.html' %}
+{% block content %}
+    <div class="result">
+        <h3 id="result-heading" >Your file has been  compressed successfully!</h3>
+        
+        <p class="stats">Original Size: {{ original_size }} bytes</p>
+        <p class="stats">Compressed Size: {{ compressed_size }} bytes</p>
+        <p class="stats">Time Taken: {{ duration }} s</p>
+        <p class="stats">Compression Ratio: {{ ratio }} %</p>
+
+        <a href="{{ url_for('download') }}" class="download-link">
+            <img src="{{ url_for('static', filename='download_icon.png') }}" id="downloadicon" alt="Download icon" />
+            Download your compressed file
+        </a>
+        <a href="{{ url_for('home') }}" class="compress-another-link">
+            Compress Another File
+        </a>
+
+        
+    </div>
+{% endblock %}

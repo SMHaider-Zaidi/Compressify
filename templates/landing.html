@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compressify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel='icon' href="{{ url_for('static', filename='favicon.png') }}">
+
+</head>
+<body>
+    
+    <div class="nameandlogo">
+        <h2 id="name">Compressify</h2>
+        <p id="tagline"> Manage Your Storage Effortlessly, Save Time Instantly.</p>
+        <p id ='subtext'>Big files slowing you down?
+                        Compressify makes them smaller in seconds,
+                        so you can focus on what truly matters.</p>
+        <img id="logo" alt="Compressify logo" src="{{ url_for('static', filename='images.png')}}">
+    </div>
+
+    <div class="uploadsection">
+        <h4 id="heading">Compress Your Text Files in Seconds</h4>
+        <p id="huffman-info">Powered by the Huffman Coding algorithm for fast, efficient text compression</p>
+
+        {% block content %}
+        <div class="uploadbox">
+            
+            <img src="{{ url_for('static', filename='upload.png') }}" id="upload-icon" alt="Upload icon"/>
+            <h4 id="upload-heading">Upload file</h4>
+            <p id="accepted-formats"><b>Supported file types:</b> .txt, .csv, .log, .md, .json, .xml</p>
+
+            
+            <p id="live-error"></p>  
+            {% if error %}
+            <p id="error-box">{{ error }}</p>
+            {% endif %}
+            
+            <form action="/submit" method="POST" enctype="multipart/form-data">
+                <div class="file-input-group">
+                <input type='file' id="file-input" name="file">
+                </div>
+                <button type="submit" id="compress-button">Compress File</button>
+            </form>
+        </div>
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>
+
