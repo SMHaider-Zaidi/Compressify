@@ -37,7 +37,7 @@ Note on Compression Ratios: Huffman coding thrives on patterns. Files with high 
 **Installation & Setup:**
 
 Clone the repository:
-git clone https://github.com/yourusername/Compressify.git
+git clone https://github.com/SMHaider-Zaidi/Compressify.git
 cd Compressify
 
 Set up a virtual environment:
